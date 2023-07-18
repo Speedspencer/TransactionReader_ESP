@@ -1,77 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
     <title>Economy Shop GUI Transaction Log Reader</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-            padding: 20px;
-        }
-
-        h1 {
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            font-weight: bold;
-        }
-
-        input[type="file"] {
-            margin-bottom: 10px;
-        }
-
-        input[type="number"] {
-            width: 50px;
-        }
-
-        input[type="checkbox"] {
-            margin-top: 5px;
-        }
-
-        input[type="submit"] {
-            background-color: #4caf50;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 14px;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Economy Shop GUI Transaction Log Reader</h1>
-    <form method="POST" action="/upload" enctype="multipart/form-data">
-        <input type="file" name="logfile" required>
-        <br><br>
-        <label for="itemlimit">Item Limit:</label>
-        <input type="number" id="itemlimit" name="itemlimit" min="1" max="10" value="5" required>
-        <br><br>
-        <label for="playerlimit">Player Limit:</label>
-        <input type="number" id="playerlimit" name="playerlimit" min="1" max="10" value="5" required>
-        <br><br>
-        <label for="includeid">Include Item ID:</label>
-        <input type="checkbox" id="includeid" name="includeid">
-        <br><br>
-        <input type="submit" value="Upload">
-    </form>
+    <div class="container">
+        <h1 class="title">Economy Shop GUI Transaction Log Reader</h1>
+
+        <div class="options-box">
+            <form method="POST" action="/upload" enctype="multipart/form-data">
+                <div class="field">
+                    <label for="logfile" class="label">Choose Log File:</label>
+                    <div class="control">
+                        <input type="file" id="logfile" name="logfile" class="input" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="itemlimit" class="label">Item Limit:</label>
+                    <div class="control">
+                        <input type="number" id="itemlimit" name="itemlimit" min="1" max="10" value="5" class="input" required>
+                    </div>
+                    <p class="help">Enter the maximum number of most sold and most bought items to display.</p>
+                </div>
+
+                <div class="field">
+                    <label for="playerlimit" class="label">Player Limit:</label>
+                    <div class="control">
+                        <input type="number" id="playerlimit" name="playerlimit" min="1" max="10" value="5" class="input" required>
+                    </div>
+                    <p class="help">Enter the maximum number of most active players to display.</p>
+                </div>
+
+                <div class="field">
+                    <input type="checkbox" id="includeid" name="includeid" class="checkbox">
+                    <label for="includeid" class="checkbox-label">Include Item ID</label>
+                    <p class="help">Check this box to include item IDs in the results.</p>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+                        <button type="submit" class="button is-primary">Upload</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

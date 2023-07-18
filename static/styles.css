@@ -10,6 +10,25 @@ h1 {
     margin-bottom: 20px;
 }
 
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.label {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.input, .checkbox {
+    font-size: 16px;
+}
+
+.help {
+    font-size: 14px;
+}
+
+
 .result-section {
     background-color: #fff;
     padding: 20px;
