@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transaction Summary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Transaction Summary</h1>
+
+        <h2>Most Sold Items</h2>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Most Sold Items</th>
+            </tr>
+            {% for date, items in most_sold_items.items() %}
+                <tr>
+                    <td>{{ date }}</td>
+                    <td>{{ items }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <h2>Most Bought Items</h2>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Most Bought Items</th>
+            </tr>
+            {% for date, items in most_bought_items.items() %}
+                <tr>
+                    <td>{{ date }}</td>
+                    <td>{{ items }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <h2>Most Buy Players per Day</h2>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Player</th>
+                <th>Amount</th>
+            </tr>
+            {% for date, players in buy_players_per_day.items() %}
+                {% for player, amount in players %}
+                    <tr>
+                        <td>{{ date }}</td>
+                        <td>{{ player }}</td>
+                        <td>{{ amount }}</td>
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+        </table>
+
+        <h2>Most Sell Players per Day</h2>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Player</th>
+                <th>Amount</th>
+            </tr>
+            {% for date, players in sell_players_per_day.items() %}
+                {% for player, amount in players %}
+                    <tr>
+                        <td>{{ date }}</td>
+                        <td>{{ player }}</td>
+                        <td>{{ amount }}</td>
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+        </table>
+
+        <a href="{{ url_for('download') }}" class="download-button">Download Excel File</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Log File</title>
+</head>
+<body>
+    <h1>Upload Log File</h1>
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="logfile" required>
+        <br><br>
+        <label for="itemlimit">Item Limit:</label>
+        <input type="number" id="itemlimit" name="itemlimit" min="1" max="10" value="5" required>
+        <br><br>
+        <label for="playerlimit">Player Limit:</label>
+        <input type="number" id="playerlimit" name="playerlimit" min="1" max="10" value="5" required>
+        <br><br>
+        <label for="includeid">Include Item ID:</label>
+        <input type="checkbox" id="includeid" name="includeid">
+        <br><br>
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>
